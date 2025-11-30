@@ -1,38 +1,29 @@
-# OTClientV8 - AI Integration Project
+# Client - Tibia AI (OTClientV8 Mod)
 
-Este repositório é um *fork* do [OTClientV8](https://github.com/OTCV8/otclientv8) e serve como base para um projeto de estudo e desenvolvimento de Inteligência Artificial aplicada a jogos MMORPG.
+Este repositório contém o **Cliente de Jogo** do projeto Tibia IA. Ele é um fork do [OTClientV8](https://github.com/OTCV8/otclientv8) modificado para incluir interfaces de interação com Inteligência Artificial.
 
-**Status atual:** 🚧 Fase Inicial 
-
----
-
-## Objetivo do Projeto
-
-A meta é modificar o cliente de Tibia (OTClient) para integrar uma interface de chat conectada a uma **LLM (Large Language Model)** via um microserviço externo.
-
-O projeto visa explorar:
-1.  Modificação de interface (UI/UX) em Lua/OTUI.
-2.  Comunicação HTTP entre Cliente de jogo e API externa.
-3.  Desenvolvimento de Backend em Python (FastAPI).
-4.  Engenharia de Prompt para NPCs ou Assistentes de Jogo.
+A principal modificação é a inclusão de um painel lateral e módulos de chat que se comunicam com uma API externa.
 
 ---
 
-## 🏗️ Arquitetura Planejada
+## Ecossistema do Projeto
 
-O sistema será desenvolvido em duas camadas:
+Este cliente é a "visão" e a "fala" do sistema. Ele faz parte de uma arquitetura de 3 pilares:
 
-1.  **Frontend (Cliente):**
-    * O OTClient será modificado para incluir um painel lateral dedicado.
-    * Um novo módulo (`client_aichat`) será criado para capturar inputs do usuário.
-
-2.  **Backend (Servidor de IA):**
-    * Uma API Python rodará localmente.
-    * Responsável por receber o texto do jogo, processar em uma IA e devolver a resposta.
+| Componente | Repositório | Função |
+| :--- | :--- | :--- |
+| **Client** | **[Você está aqui]** | Interface gráfica, Chat, Input do Jogador. |
+| **Game Server** | [Tibia_ia](https://github.com/VictorHugo-Neo/Tibia_ia) | Regras do jogo, física, monstros e banco de dados. |
+| **AI Brain** | *Tibia_AI_Brain* (Local/Privado) | Microserviço Python que processa a IA (LLM). |
 
 ---
+
+## Funcionalidades Específicas
+
+* **Layout Híbrido:** A tela do jogo (`gameMapPanel`) foi deslocada para a direita, criando um espaço dedicado à esquerda para ferramentas de IA.
+* **Módulo `client_aichat`:** Uma janela de chat ancorada no novo painel esquerdo, projetada para enviar requisições HTTP para o microserviço de IA sem depender do chat padrão do jogo.
 
 ## Créditos
 
-* Projeto Base: [OTClientV8](https://github.com/OTCV8/otclientv8)
-* Desenvolvimento da Integração IA: **VictorHugo-Neo**
+* Baseado no projeto [OTClientV8](https://github.com/OTCV8/otclientv8).
+* Modificações de Interface e IA por **VictorHugo-Neo**.
