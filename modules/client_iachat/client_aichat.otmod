@@ -1,0 +1,11 @@
+Module
+  name: client_aichat
+  description: Interface de Chat com IA
+  author: VictorHugo-Neo
+  website: https://github.com/VictorHugo-Neo/Otclientv8-IA
+  sandboxed: true
+  scripts: [ client_aichat ]
+  @onLoad: init()
+  @onUnload: terminate()
+  dependencies:
+    - game_interface
