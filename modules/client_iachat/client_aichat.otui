@@ -1,0 +1,42 @@
+MiniWindow
+  id: aiChatWindow
+  !text: tr('IA Companion')
+  height: 300
+  @onClose: modules.client_aichat.onMiniWindowClose()
+
+  MiniWindowContents
+    UITextList
+      id: chatConsole
+      anchors.top: parent.top
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.bottom: next.top
+      margin-bottom: 5
+      vertical-scrollbar: chatScroll
+      focusable: false
+
+    VerticalScrollBar
+      id: chatScroll
+      anchors.top: prev.top
+      anchors.bottom: prev.bottom
+      anchors.right: prev.right
+      step: 14
+      pixels-scroll: true
+
+    TextEdit
+      id: messageInput
+      anchors.bottom: sendButton.top
+      anchors.left: parent.left
+      anchors.right: parent.right
+      height: 50
+      margin-bottom: 5
+      multiline: true
+
+    Button
+      id: sendButton
+      !text: tr('Enviar')
+      anchors.bottom: parent.bottom
+      anchors.right: parent.right
+      width: 60
+      height: 20
+      @onClick: modules.client_aichat.sendMessage()
